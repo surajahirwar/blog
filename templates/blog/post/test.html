@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		/**
+ * Misc Doc Styles
+ */
+html {
+  background-color: #fdfdfd!important;
+}
+
+hr {
+  margin: 2em;
+}
+
+.intro-card {
+  padding: 2em;
+  background-color: #fff;
+  box-shadow: var(--shadow-card-hover);
+  margin: 2em auto;
+  border-radius: 16px;
+  max-width: 600px;
+}
+  h1 {
+    line-height: 120%;
+  }
+
+  .author {
+    color: #666;
+    padding-top: 1em;
+    font-size: 1rem;
+  }
+
+  marker {
+    padding: 3px;
+    border-radius: 2px;
+    background-color: var(--tertiary-color-6-25);
+  }
+}
+
+.annotation {
+  padding: 1em;
+  margin: 1em auto;
+  
+  p {
+    font-size: 14px;
+    &:not(:last-of-type) {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+
+/**
+ * Code Tutorial
+ */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #2d2d2d !important;
+}
+
+pre {
+  border-radius: 4px;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  max-width: 100%;
+  overflow-x: scroll;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: "DM Mono", monospace !important;
+  font-weight: 500;
+  font-size: 15px !important;
+  letter-spacing: 0px !important;
+  text-transform: none;
+}
+
+/**
+ * Defaults
+ */
+
+:root {
+  --primary-color-root: #0581ff;
+  --primary-color-dark: #005cb9;
+  --primary-color-dark-2: #00356b;
+  --primary-color-light: #389bff;
+  --primary-color-50: #82c0ff;
+  --primary-color-rgba-50: rgba(5, 129, 255, 50%);
+  --primary-color-25: #c0dfff;
+  --primary-color-rgba-25: rgba(5, 129, 255, 25%);
+  --primary-color-12-5: #e0efff;
+  --primary-color-rgba-12-5: rgba(5, 129, 255, 12.5%);
+  --primary-color-6-25: #eff7ff;
+  --primary-color-rgba-6-25: rgba(5, 129, 255, 6.25%);
+  --secondary-color-root: #60a511;
+  --secondary-color-dark: #396605;
+  --secondary-color-dark-2: #264700;
+  --secondary-color-light: #87ce36;
+  --secondary-color-50: #b0d288;
+  --secondary-color-rgba-50: rgba(96, 165, 17, 50%);
+  --secondary-color-25: #d7e8c3;
+  --secondary-color-rgba-25: rgba(96, 165, 17, 25%);
+  --secondary-color-12-5: #ebf4e1;
+  --secondary-color-rgba-12-5: rgba(96, 165, 17, 12.5%);
+  --secondary-color-6-25: #f5f9f0;
+  --secondary-color-rgba-6-25: rgba(96, 165, 17, 6.25%);
+  --tertiary-color-root: #a62121;
+  --tertiary-color-dark: #6c0e0e;
+  --tertiary-color-dark-2: #3f0808;
+  --tertiary-color-light: #c15353;
+  --tertiary-color-50: #d39090;
+  --tertiary-color-rgba-50: rgba(166, 33, 33, 50%);
+  --tertiary-color-25: #e8c7c7;
+  --tertiary-color-rgba-25: rgba(166, 33, 33, 25%);
+  --tertiary-color-12-5: #f4e3e3;
+  --tertiary-color-rgba-12-5: rgba(166, 33, 33, 12.5%);
+  --tertiary-color-6-25: #f9f1f1;
+  --tertiary-color-rgba-6-25: rgba(166, 33, 33, 6.25%);
+  --shadow-image: 0px 10px 25px rgba(0, 0, 0, 0.125);
+  --shadow-card-hover: 0px 10.3115px 20.623px rgba(0, 0, 0, 0.15);
+  --shadow-card-text-blue: 1px 2px 5px rgba(0, 53, 107, 0.6);
+  --shadow-small: 0px 4px 25px rgba(0, 0, 0, 0.15);
+  --shadow-text: 0px 0px 5px rgba(0, 0, 0, 0.2),
+    0px 18px 23px rgba(0, 0, 0, 0.1), 0px 8px 13px rgba(0, 0, 0, 0.1),
+    0px 2px 2px rgba(0, 0, 0, 0.3);
+  --transition: all 0.2s ease-out;
+  --margin-float: -5px;
+  --scale: 1;
+  --unit-step-1: 8px;
+  --unit-step-2: 16px;
+  --unit-step-3: 24px;
+  --unit-step-4: 32px;
+  --unit-step-5: 40px;
+  --unit-step-6: 48px;
+  --media-small: 576px;
+  --media-medium: 768px;
+  --media-large: 992px;
+  --media-xlarge: 1200px;
+  --media-xxlarge: 1800px;
+}
+
+article,
+aside,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+img,
+li,
+ol,
+p,
+small,
+span,
+strong,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  vertical-align: baseline;
+  background: 0 0;
+}
+
+body {
+  font-family: "Cabin", sans-serif;
+  line-height: 1.8em;
+  color: #333333;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+/**
+ * Globals
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  padding-bottom: 10px;
+
+  &,
+  a {
+    font-family: "Roboto Condensed", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #333333;
+    text-decoration: none !important;
+    line-height: 150%;
+  }
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h3,
+.h3 {
+  &,
+  a {
+    font-size: 26px;
+  }
+}
+
+h4,
+.h4 {
+  font-size: 21px;
+  margin-top: 1.25rem;
+  padding-bottom: 10px;
+}
+
+h5,
+.h5 {
+  &,
+  a {
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #666666;
+  }
+}
+
+a {
+  color: var(--primary-color-dark);
+}
+
+p,
+.p,
+a,
+.a {
+  font-family: Cabin;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 175%;
+  letter-spacing: 0px;
+}
+
+small,
+.small,
+.small p,
+.small a,
+p.small,
+a.small {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 160%;
+}
+
+.ui {
+  font-family: Cabin;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+.btn {
+  padding: 0.3em 1em;
+  border-radius: 4px;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: none;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease 0ms;
+  line-height: 1.7em;
+  position: relative;
+  border: 2px solid;
+
+  &.btn-medium {
+    font-size: 16px;
+  }
+}
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  background-color: none;
+  text-decoration: none;
+  border: none;
+  margin-left: -1em;
+  margin-top: 0.5em;
+  transition: var(--transition);
+
+  &:hover {
+    background-color: var(--primary-color-rgba-12-5);
+  }
+
+  &::after {
+    content: url("https://ohioriverfdn.org/wp-content/themes/divi-child-orf/assets/icons/arrow-narrow-right-blue.svg");
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+    transition: var(--transition);
+  }
+
+  &:hover::after {
+    margin-left: 10px;
+  }
+}
+
+.term-chip {
+  padding: 5px 15px;
+  display: inline-block;
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  background-color: var(--primary-color-rgba-12-5);
+  transition: var(--transition);
+  color: var(--primary-color-dark-2);
+}
+
+/**
+ * Utils
+ */
+
+.animate {
+  opacity: 1;
+  -webkit-animation: fadeTop 1s cubic-bezier(0.77, 0, 0.175, 1) 1;
+  animation: fadeTop 1s cubic-bezier(0.77, 0, 0.175, 1) 1;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: var(--transition);
+}
+
+/**
+ * Blog Card
+ */
+
+#blog-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	column-gap: 30px;
+	row-gap: 50px;
+}
+
+#blog-grid article {
+	padding: 25px 15px;
+	transition: var(--transition);
+	min-width: 100%;
+
+	& a {
+		text-decoration: none;
+	}
+
+	&:hover {
+		margin-top: var(--margin-float);
+		margin-bottom: 5px;
+		cursor: default;
+	}
+}
+
+.blog-grid__date {
+	color: var(--primary-color-dark-2);
+	font-size: 15px;
+	line-height: 150%;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.blog-grid__image-url {
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+.blog-grid__image-url img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	object-position: top;
+	border-radius: 4px;
+}
+
+#blog-grid .term-chip {
+	position: absolute;
+	left: 8px;
+	bottom: 18px;
+	margin: 0;
+	font-size: 12px !important;
+	border-radius: 4px;
+	background-color: var(--primary-color-12-5);
+}
+
+.blog-grid__content {
+	color: #333333;
+}
+
+	</style>
+</head>
+<body>
+	<section class="intro-card">
+	<span class="h5">Ohio River Foundation</span><br /><br />
+	<h1>Blog Card Example</h1>
+	<code>(with PHP snippets & microdata)</code>
+	<p class="author"><em>Created by Jared Rice<em></p>
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<link href="{% static 'css/card.css' %}" rel="stylesheet">
+	<section class="intro-card">
+	<h1>{{ post.title }}</h1>
+	<span class="h5"><p class="date">
+	Published {{ post.publish }} by {{ post.author }}
+	</p></span><br />
+	<code>	{{ post.body|linebreaks }}</code>
+	<p class="author"><em><a href="{%	url	'blog:post_share' post.id %}">Share this post</a><em></p>
+
+            {% for comment in comments %}
+            <div class="form-group">
+              <p class="info">
+                Comment {{ forloop.counter }} by {{ comment.name }}
+                    {{ comment.created }}
+                  </p>
+                  {{ comment.body|linebreaks }}
+                    </div>
+              {% empty %}
+                <p>There are no comments yet.</p>
+          {% endfor %}
+
+          {% if new_comment %}
+                <h2>Your comment has been added.</h2>
+          {% else %}
+
+            <form class="create-form" method="post" enctype="multipart/form-data">
+              {{ comment_form.as_p }}
+              {% csrf_token %}
+              
+              <p ><input type="submit" value="Add comment" class="btn btn-primary"></p>
+            </form>
+          {% endif %}
+        
+            <div class="card-footer text-muted">
+              Updated on {{blog_post.date_updated}} by {{blog_post.author}}
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+{% endblock content %}
+
