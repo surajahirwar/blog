@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+{% block title %}My Blog{%	endblock %}
+{% load static %}
+{% block content %}
+
+<h1 class="myblog">My Blog</h1>
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+	{% for post in posts %}
+	<section class="intro-card">
+	<a href="{{ post.get_absolute_url }}"><h1>{{ post.title }}</h1></a>
+	
+
+	<span class="h5"><p class="date">
+	Published {{ post.publish }} by {{ post.author }}
+	</p></span><br/>
+	<code>{{ post.body|truncatewords:30|linebreaks }}</code>
+<p class="author"><em><a href="{% url 'blog:post_share' post.id %}">Share this post</a><em></p>
+</section>
+
+		{% endfor %}
+<span class="pagination">
+		{%	include	"blog/post/pagination.html"	with	page=posts	%}
+</span>
+
+
+
+{% endblock %}
